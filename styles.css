@@ -189,7 +189,7 @@ body {
 
 /* Header and Navigation */
 header {
-    background-color: #fff;
+    background-color: #252940;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
@@ -201,127 +201,192 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 0.5rem 5%;
+    max-height: 60px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
 }
 
 .logo h1 {
-    font-size: 1.5rem;
-    color: #333;
+    font-size: 1.3rem;
+    color: white;
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin-right: -3%;
+    gap: 1.5rem;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
-    margin-left: 2rem;
-    transition: color 0.3s;
+    color: white;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
     color: #007bff;
 }
 
+.nav-links .enroll-btn {
+    background-color: #2633c3;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links .enroll-btn:hover {
+    background-color: #307dce;
+    color: white;
+    text-decoration: none;
+}
+
 .menu-toggle {
     display: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1001;
-    border: none;
-    background: transparent;
-    transition: all 0.3s ease;
 }
 
-.menu-toggle .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: #333;
-    transition: all 0.3s ease;
-}
-
-.menu-toggle.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.menu-toggle.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* Mobile Navigation */
+/* Mobile Menu Styles */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        display: block;
+        width: 30px;
+        height: 24px;
+        position: relative;
+        cursor: pointer;
+        z-index: 1000;
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin-left: 20px;
+        z-index: 1000;
+        transition: transform 0.3s ease;
+    }
+
+    .menu-toggle.active {
+        transform: rotate(180deg);
+    }
+
+    .menu-toggle .bar {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #333;
+        position: absolute;
+        left: 0;
+        transition: transform 0.3s ease, opacity 0.2s ease;
+    }
+
+    .menu-toggle .bar:nth-child(1) {
+        top: 0;
+    }
+
+    .menu-toggle .bar:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .menu-toggle .bar:nth-child(3) {
+        bottom: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
     }
 
     .nav-links {
-        display: none;
         position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 60px);
+        top: 70px;
+        right: -100%;
+        width: 50%;
+        max-width: 300px;
+        height: 30vh;
         background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        gap: 2rem;
-        padding: 2rem;
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: all 0.3s ease;
-        z-index: 1000;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
+        border-radius: 5%;
+        padding: 1rem;
     }
 
     .nav-links.active {
-        display: flex;
-        opacity: 1;
-        transform: translateY(0);
+        right: 0;
     }
 
     .nav-links a {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
-        width: 80%;
-        text-align: center;
-        border-radius: 8px;
-        transition: all 0.3s ease;
+        font-size: 1.1rem;
+        color: #333;
+        text-decoration: none;
         position: relative;
-        overflow: hidden;
+        padding: 0.5rem 1rem;
+        transition: color 0.2s ease;
     }
 
-    .nav-links a::before {
+    .nav-links a::after {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 123, 255, 0.1);
-        transform: scaleX(0);
-        transform-origin: right;
-        transition: transform 0.3s ease;
-        z-index: -1;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background-color: #007bff;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
     }
 
-    .nav-links a:hover::before {
-        transform: scaleX(1);
-        transform-origin: left;
+    .nav-links a:hover::after {
+        width: 100%;
     }
 
     .nav-links a:hover {
         color: #007bff;
-        transform: translateX(5px);
+    }
+
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        z-index: 998;
+    }
+
+    body.menu-open .menu-overlay {
+        opacity: 1;
+        visibility: visible;
     }
 
     body.menu-open {
@@ -991,6 +1056,34 @@ nav {
     transform: translateX(5px);
 }
 
+.view-all-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.view-all-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.view-all-btn i {
+    transition: transform 0.3s ease;
+}
+
+.view-all-btn:hover i {
+    transform: translateX(5px);
+}
+
 .view-all-blogs {
     text-align: center;
     margin-top: 3rem;
@@ -1585,5 +1678,320 @@ footer {
 
     .social-link i {
         font-size: 1rem;
+    }
+}
+
+/* Programs Page Styles */
+.programs-main {
+    padding-top: 80px;
+    background-color: #f8f9fa;
+}
+
+.programs-header {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./image/hero_background.jpg') center/cover;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+.programs-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.programs-header p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.program-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.program-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.program-content {
+    padding: 1.5rem;
+}
+
+.program-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.program-details {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.program-details i {
+    color: #007bff;
+}
+
+.enroll-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.enroll-button:hover {
+    background-color: #0056b3;
+}
+
+/* Blog Page Styles */
+.blog-main {
+    padding-top: 80px;
+    background-color: #f8f9fa;
+}
+
+.blog-header {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./image/hero_background.jpg') center/cover;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+.blog-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.blog-header p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.blog-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.1);
+}
+
+.blog-content {
+    padding: 1.5rem;
+}
+
+.blog-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.blog-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.blog-meta i {
+    color: #007bff;
+}
+
+.blog-excerpt {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    color: #0056b3;
+}
+
+.read-more-btn i {
+    transition: transform 0.3s ease;
+}
+
+.read-more-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .programs-header h1,
+    .blog-header h1 {
+        font-size: 2rem;
+    }
+
+    .programs-header p,
+    .blog-header p {
+        font-size: 1rem;
+    }
+
+    .programs-grid,
+    .blog-grid {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .program-card,
+    .blog-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+.youtube-section {
+    padding: 2rem;
+    margin: 2rem 0;
+    background-color: #f8f9fa;
+}
+
+.youtube-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.youtube-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.video-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-content {
+    padding: 1rem;
+}
+
+.video-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.video-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.video-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.video-meta i {
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .youtube-grid {
+        grid-template-columns: 1fr;
+        padding: 0 0.5rem;
     }
 }

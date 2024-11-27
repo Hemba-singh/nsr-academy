@@ -2,37 +2,71 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const body = document.body;
+let isMenuOpen = false;
 
-menuToggle.addEventListener('click', () => {
+// Create menu overlay
+const menuOverlay = document.createElement('div');
+menuOverlay.classList.add('menu-overlay');
+document.body.appendChild(menuOverlay);
+
+function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
     menuToggle.classList.toggle('active');
     navLinks.classList.toggle('active');
     body.classList.toggle('menu-open');
+    
+    // Prevent scrolling when menu is open
+    if (isMenuOpen) {
+        body.style.overflow = 'hidden';
+    } else {
+        body.style.overflow = '';
+    }
+}
+
+// Toggle menu on button click
+menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
 });
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!menuToggle.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-        body.classList.remove('menu-open');
+// Close menu when clicking overlay
+menuOverlay.addEventListener('click', () => {
+    if (isMenuOpen) {
+        toggleMenu();
+    }
+});
+
+// Close menu when pressing Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isMenuOpen) {
+        toggleMenu();
     }
 });
 
 // Close menu when clicking a nav link
 navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-        body.classList.remove('menu-open');
+        if (isMenuOpen) {
+            toggleMenu();
+        }
     });
 });
 
 // Close menu on window resize
+let resizeTimer;
 window.addEventListener('resize', () => {
-    if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-        body.classList.remove('menu-open');
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        if (window.innerWidth > 768 && isMenuOpen) {
+            toggleMenu();
+        }
+    }, 250);
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (isMenuOpen && !menuToggle.contains(e.target) && !navLinks.contains(e.target) && !menuOverlay.contains(e.target)) {
+        toggleMenu();
     }
 });
 

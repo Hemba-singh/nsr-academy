@@ -11,18 +11,20 @@
     <header>
         <nav>
             <div class="logo">
+                <img src="./image/logo.png" alt="NSR Sport Academy Logo">
                 <h1>NSR Sport Academy</h1>
             </div>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="programs.html">Programs</a>
                 <a href="blog.html">Blog</a>
+                <a href="enroll.html" class="enroll-btn">Enroll Now</a>
             </div>
-            <div class="menu-toggle">
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
         </nav>
     </header>
 
@@ -32,34 +34,103 @@
             <p>Stay updated with the latest news, tips, and insights from NSR Sport Academy</p>
         </section>
 
+        <section class="youtube-section">
+            <h2>Latest Videos</h2>
+            <div class="youtube-grid">
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe width="560" height="315" 
+                        src="https://www.youtube-nocookie.com/embed/tbIp5zqSObg?si=T92_EHz5pdjdgjSD" 
+                        title="YouTube video player" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen></iframe>
+                    </div>
+                    <div class="video-content">
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar"></i> Upload Date</span>
+                            <span><i class="far fa-eye"></i> Views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe width="560" height="315" 
+                        src="https://www.youtube-nocookie.com/embed/QHPJSDLLk-8?si=-0fRBh3yQme_OheQ" 
+                        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen></iframe>
+                    </div>
+                    <div class="video-content">
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar"></i> Upload Date</span>
+                            <span><i class="far fa-eye"></i> Views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe width="560" height="315" 
+                        src="https://www.youtube-nocookie.com/embed/NmmujkaY7i8?si=ReDz260OEZf2WuzI" 
+                        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-content">
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar"></i> Upload Date</span>
+                            <span><i class="far fa-eye"></i> Views</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="blog-grid">
             <article class="blog-card">
-                <img src="https://source.unsplash.com/800x500/?sports-training" alt="Training Tips">
+                <div class="blog-image">
+                    <img src="./image/blog-1.jpg" alt="Training Tips" onerror="this.src='https://source.unsplash.com/800x500/?sports-training'">
+                </div>
                 <div class="blog-content">
-                    <h2>Essential Training Tips for Athletes</h2>
-                    <p class="blog-meta">Posted on March 15, 2024 | By NSR Academy Staff</p>
-                    <p>Discover the most effective training techniques that can help you improve your performance...</p>
-                    <a href="#" class="read-more">Read More</a>
+                    <h3>Essential Training Tips for Athletes</h3>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> March 15, 2024</span>
+                        <span><i class="far fa-user"></i> NSR Academy Staff</span>
+                    </div>
+                    <p class="blog-excerpt">Discover the most effective training techniques that can help you improve your performance and achieve your athletic goals.</p>
+                    <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
 
             <article class="blog-card">
-                <img src="https://source.unsplash.com/800x500/?nutrition" alt="Nutrition Guide">
+                <div class="blog-image">
+                    <img src="./image/blog-2.jpg" alt="Nutrition Guide" onerror="this.src='https://source.unsplash.com/800x500/?nutrition'">
+                </div>
                 <div class="blog-content">
-                    <h2>Nutrition Guide for Athletes</h2>
-                    <p class="blog-meta">Posted on March 12, 2024 | By NSR Academy Staff</p>
-                    <p>Learn about the best foods to fuel your workouts and support your athletic goals...</p>
-                    <a href="#" class="read-more">Read More</a>
+                    <h3>Nutrition Guide for Athletes</h3>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> March 12, 2024</span>
+                        <span><i class="far fa-user"></i> NSR Academy Staff</span>
+                    </div>
+                    <p class="blog-excerpt">Learn about the best foods to fuel your workouts and support your athletic goals for optimal performance.</p>
+                    <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
 
             <article class="blog-card">
-                <img src="https://source.unsplash.com/800x500/?fitness" alt="Recovery Methods">
+                <div class="blog-image">
+                    <img src="./image/blog-3.jpg" alt="Recovery Methods" onerror="this.src='https://source.unsplash.com/800x500/?fitness'">
+                </div>
                 <div class="blog-content">
-                    <h2>Recovery Methods for Peak Performance</h2>
-                    <p class="blog-meta">Posted on March 10, 2024 | By NSR Academy Staff</p>
-                    <p>Explore effective recovery techniques to help you bounce back stronger after intense training...</p>
-                    <a href="#" class="read-more">Read More</a>
+                    <h3>Recovery Methods for Peak Performance</h3>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> March 10, 2024</span>
+                        <span><i class="far fa-user"></i> NSR Academy Staff</span>
+                    </div>
+                    <p class="blog-excerpt">Explore effective recovery techniques to help you bounce back stronger after intense training sessions.</p>
+                    <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
         </section>
@@ -68,28 +139,42 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Quick links</h3>
-                <p>Email: Nsrsportsacademy@gmail.com</p>
-                <p>Phone: (+91) 9131583808</p>
-                <p><a href="programs.html">Programs</a></p>
-                <p><a href="blog.html">Blog</a></p>
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-envelope"></i> Nsrsportsacademy@gmail.com</p>
+                <p><i class="fas fa-phone"></i> (+91) 9131583808</p>
+                <p><i class="fas fa-map-marker-alt"></i> Chirawa, Rajasthan</p>
             </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="index.html"><i class="fas fa-home"></i> Home</a></p>
+                <p><a href="programs.html"><i class="fas fa-dumbbell"></i> Programs</a></p>
+                <p><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Training Hours</h3>
+                <p><i class="fas fa-clock"></i> Monday - Friday: 6:00 AM - 9:00 PM</p>
+                <p><i class="fas fa-clock"></i> Saturday: 7:00 AM - 8:00 PM</p>
+                <p><i class="fas fa-clock"></i> Sunday: 8:00 AM - 6:00 PM</p>
+            </div>
+            
             <div class="footer-section">
                 <h3>Follow Us</h3>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/share/b1in7iS9prVdJ6ZS/?mibextid=LQQJ4d" class="social-link facebook" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
+                    <a href="https://www.facebook.com/profile.php?id=100095210220212&mibextid=ZbWKwL" class="social-link facebook" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-facebook"></i>
                         <span class="social-tooltip">Facebook</span>
                     </a>
-                    <a href="https://www.instagram.com/nsrsportsacademy/profilecard" class="social-link instagram" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page">
+                    <a href="https://www.instagram.com/nsrsportsacademy/" class="social-link instagram" aria-label="Visit our Instagram page" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-instagram"></i>
                         <span class="social-tooltip">Instagram</span>
                     </a>
-                    <a href="https://youtube.com/@nsrsportsacademy?si=s5N7Y2BaU8x-OI-b" class="social-link youtube" target="_blank" rel="noopener noreferrer" aria-label="Visit our Youtube page">
+                    <a href="https://youtube.com/@nsrsportsacademy?si=s5N7Y2BaU8x-OI-b" class="social-link youtube" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-youtube"></i>
                         <span class="social-tooltip">YouTube</span>
                     </a>
-                    <a href="https://wa.me/919131583808" class="social-link whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+                    <a href="https://wa.me/919131583808" class="social-link whatsapp" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp"></i>
                         <span class="social-tooltip">WhatsApp</span>
                     </a>
