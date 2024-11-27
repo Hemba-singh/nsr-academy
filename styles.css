@@ -803,6 +803,179 @@ footer {
     color: #007bff;
 }
 
+/* Enhanced Contact Form Styles */
+.contact-form {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.form-intro {
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.enhanced-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.required {
+    color: #dc3545;
+    margin-left: 0.2rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #adb5bd;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+    outline: none;
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.consent-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.consent-checkbox input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 0.2rem;
+    accent-color: #007bff;
+    cursor: pointer;
+}
+
+.consent-checkbox label {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #666;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.submit-button:hover {
+    background: linear-gradient(45deg, #0056b3, #004094);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+.submit-button i {
+    transition: transform 0.3s ease;
+}
+
+.submit-button:hover i {
+    transform: translateX(5px);
+}
+
+/* Form Validation Styles */
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown) {
+    border-color: #dc3545;
+    background-color: #fff;
+}
+
+.form-group input:invalid:not(:placeholder-shown):focus,
+.form-group textarea:invalid:not(:placeholder-shown):focus {
+    box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.1);
+}
+
+/* Responsive Design for Form */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .submit-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
 /* Contact Form Styles */
 .contact-form {
     background: #ffffff;
