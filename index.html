@@ -19,7 +19,9 @@
                 <a href="blog.html">Blog</a>
             </div>
             <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </nav>
     </header>
@@ -27,7 +29,7 @@
     <main>
         <section class="hero">
             <div class="hero-overlay"></div>
-            <div class="hero-content">
+            <div class="hero-content scroll-fade">
                 <h1>Welcome to NSR Sport Academy</h1>
                 <p class="hero-subtitle">Unleash Your Potential in Sports Excellence</p>
                 <div class="hero-features">
@@ -51,23 +53,58 @@
             </div>
         </section>
 
-        <section id="features" class="features">
-            <h2>Why Choose Us</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-medal"></i>
-                    <h3>Expert Coaches</h3>
-                    <p>Learn from experienced professionals</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-dumbbell"></i>
-                    <h3>Modern Facilities</h3>
-                    <p>State-of-the-art equipment and training areas</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Personalized Training</h3>
-                    <p>Programs tailored to your goals</p>
+        <section class="features">
+            <div class="features-container">
+                <h2>Why Choose NSR Sport Academy?</h2>
+                <p class="features-subtitle">Discover what sets us apart in martial arts training</p>
+                <div class="features-grid">
+                    <div class="feature-card scroll-fade-left scroll-delay-1">
+                        <div class="feature-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Expert Instructors</h3>
+                        <p>Learn from certified and experienced martial arts instructors who are passionate about teaching and dedicated to your success.</p>
+                    </div>
+                    
+                    <div class="feature-card scroll-fade-right scroll-delay-2">
+                        <div class="feature-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <h3>Modern Facilities</h3>
+                        <p>Train in our state-of-the-art facilities equipped with the latest training equipment and safety features.</p>
+                    </div>
+                    
+                    <div class="feature-card scroll-fade-left scroll-delay-3">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Supportive Community</h3>
+                        <p>Join a welcoming community of martial artists who support and motivate each other to achieve their goals.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <h3>All Skill Levels</h3>
+                        <p>Whether you're a beginner or advanced practitioner, our programs are tailored to help you grow and improve.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Flexible Schedule</h3>
+                        <p>Choose from multiple class times throughout the week to fit your busy lifestyle and training preferences.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Safe Environment</h3>
+                        <p>Train with confidence in our safe and controlled environment with proper supervision and safety protocols.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -179,7 +216,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="preferred-time">Preferred Contact Time</label>
+                                <label for="preferred-time">Preferred Time</label>
                                 <select name="preferred-time" id="preferred-time">
                                     <option value="">Select time</option>
                                     <option value="morning">Morning (9AM - 12PM)</option>
@@ -216,28 +253,42 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Quick links</h3>
-                <p>Email: Nsrsportsacadmey@gmail.com</p>
-                <p>Phone: (+91) 9131583808</p>
-                <p><a href="programs.html">Programs</a></p>
-                <p><a href="blog.html">Blog</a></p>
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-envelope"></i> Nsrsportsacademy@gmail.com</p>
+                <p><i class="fas fa-phone"></i> (+91) 9131583808</p>
+                <p><i class="fas fa-map-marker-alt"></i> Indore, Madhya Pradesh</p>
             </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="index.html"><i class="fas fa-home"></i> Home</a></p>
+                <p><a href="programs.html"><i class="fas fa-dumbbell"></i> Programs</a></p>
+                <p><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Training Hours</h3>
+                <p><i class="fas fa-clock"></i> Monday - Friday: 6:00 AM - 9:00 PM</p>
+                <p><i class="fas fa-clock"></i> Saturday: 7:00 AM - 8:00 PM</p>
+                <p><i class="fas fa-clock"></i> Sunday: 8:00 AM - 6:00 PM</p>
+            </div>
+            
             <div class="footer-section">
                 <h3>Follow Us</h3>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/share/b1in7iS9prVdJ6ZS/?mibextid=LQQJ4d" class="social-link facebook" aria-label="Visit our Facebook page">
+                    <a href="https://www.facebook.com/share/b1in7iS9prVdJ6ZS/?mibextid=LQQJ4d" class="social-link facebook" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-facebook"></i>
                         <span class="social-tooltip">Facebook</span>
                     </a>
-                    <a href="https://www.instagram.com/nsrsportsacademy/profilecard" class="social-link instagram" aria-label="Visit our Instagram page">
+                    <a href="https://www.instagram.com/nsrsportsacademy" class="social-link instagram" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-instagram"></i>
                         <span class="social-tooltip">Instagram</span>
                     </a>
-                    <a href="https://youtube.com/@nsrsportsacademy?si=s5N7Y2BaU8x-OI-b" class="social-link youtube" aria-label="Visit our Youtube page">
+                    <a href="https://youtube.com/@nsrsportsacademy?si=s5N7Y2BaU8x-OI-b" class="social-link youtube" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-youtube"></i>
                         <span class="social-tooltip">YouTube</span>
                     </a>
-                    <a href="http://wa.me/9131583808" class="social-link whatsapp" aria-label="Visit our WhatsApp page">
+                    <a href="https://wa.me/919131583808" class="social-link whatsapp" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp"></i>
                         <span class="social-tooltip">WhatsApp</span>
                     </a>

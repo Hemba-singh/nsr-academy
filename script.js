@@ -1,23 +1,114 @@
-// Mobile menu toggle
+// Mobile menu toggle with animation
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
+const body = document.body;
 
 menuToggle.addEventListener('click', () => {
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    menuToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    body.classList.toggle('menu-open');
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!menuToggle.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        body.classList.remove('menu-open');
+    }
+});
+
+// Close menu when clicking a nav link
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        body.classList.remove('menu-open');
+    });
+});
+
+// Close menu on window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        body.classList.remove('menu-open');
+    }
 });
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     });
 });
 
 // Form handling
 const forms = document.querySelectorAll('form');
+
+forms.forEach(form => {
+    // Add input validation
+    const inputs = form.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('invalid', (e) => {
+            e.preventDefault();
+            input.classList.add('invalid');
+        });
+        
+        input.addEventListener('input', () => {
+            input.classList.remove('invalid');
+        });
+    });
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Validate required fields
+        const isValid = form.checkValidity();
+        if (!isValid) {
+            form.reportValidity();
+            return;
+        }
+
+        // Disable form while submitting
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        const formData = new FormData(form);
+        const url = form.getAttribute('action');
+
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            createPopup('success', 'Success!', 'Your form has been submitted successfully.');
+            form.reset();
+        } catch (error) {
+            console.error('Error:', error);
+            createPopup('error', 'Error!', 'There was a problem submitting your form. Please try again.');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+    });
+});
 
 // Create popup elements
 const createPopup = (type, title, message) => {
@@ -64,73 +155,6 @@ const createPopup = (type, title, message) => {
         }
     }, 5000);
 };
-
-forms.forEach(form => {
-    // Add input validation
-    const inputs = form.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-        input.addEventListener('invalid', (e) => {
-            e.preventDefault();
-            input.classList.add('invalid');
-        });
-        
-        input.addEventListener('input', () => {
-            input.classList.remove('invalid');
-        });
-    });
-
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        // Validate required fields
-        const isValid = form.checkValidity();
-        if (!isValid) {
-            form.reportValidity();
-            return;
-        }
-
-        // Disable form while submitting
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.textContent;
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
-
-        const formData = new FormData(form);
-        const url = form.getAttribute('action');
-
-        try {
-            const response = await fetch(url, {
-                method: form.getAttribute('method'),
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            createPopup(
-                'success',
-                'Message Sent Successfully!',
-                'Thank you for your message. We will get back to you soon.'
-            );
-            form.reset();
-        } catch (error) {
-            console.error('Form submission error:', error);
-            createPopup(
-                'error',
-                'Oops! Something went wrong',
-                'There was an error sending your message. Please try again later.'
-            );
-        } finally {
-            // Re-enable form
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalBtnText;
-        }
-    });
-});
 
 // Enrollment form handling
 function handleEnrollment(event) {
@@ -254,3 +278,35 @@ featureCards.forEach(card => {
     card.style.transition = 'opacity 0.5s, transform 0.5s';
     observer.observe(card);
 }); 
+
+// Scroll Animation Observer
+const scrollElements = document.querySelectorAll('.scroll-fade, .scroll-fade-left, .scroll-fade-right');
+
+const elementInView = (el, offset = 0) => {
+    const elementTop = el.getBoundingClientRect().top;
+    return (
+        elementTop <= (window.innerHeight || document.documentElement.clientHeight) * (1 - offset)
+    );
+};
+
+const displayScrollElement = (element) => {
+    element.classList.add('visible');
+};
+
+const handleScrollAnimation = () => {
+    scrollElements.forEach((el) => {
+        if (elementInView(el, 0.25)) {
+            displayScrollElement(el);
+        }
+    });
+};
+
+// Add event listener for scroll
+window.addEventListener('scroll', () => {
+    handleScrollAnimation();
+});
+
+// Trigger on page load
+window.addEventListener('load', () => {
+    handleScrollAnimation();
+});
