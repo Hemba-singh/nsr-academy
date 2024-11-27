@@ -211,11 +211,102 @@ footer {
     margin-bottom: 1rem;
 }
 
-.social-links a {
-    color: #fff;
-    margin-right: 1rem;
-    font-size: 1.5rem;
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #333;
     text-decoration: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.social-link i {
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-link.facebook:hover {
+    background: #1877f2;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
+}
+
+.social-link.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(225, 48, 108, 0.4);
+}
+
+.social-link.youtube:hover {
+    background: #ff0000;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+
+.social-link.whatsapp:hover {
+    background: #25d366;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+
+.social-link:hover i {
+    color: #ffffff;
+    transform: scale(1.2);
+}
+
+.social-tooltip {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.social-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px 5px 0 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.social-link:hover .social-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.social-link:active {
+    animation: pulse 0.3s ease-in-out;
 }
 
 .footer-bottom {
@@ -607,4 +698,203 @@ footer {
 
 .popup-button:hover {
     background: #0056b3;
+}
+
+/* Submit Form Section Styles */
+.submit-form-section {
+    padding: 4rem 0;
+    background: linear-gradient(to right, #f8f9fa 50%, #ffffff 50%);
+}
+
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Coach Profile Styles */
+.coach-profile {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.coach-image {
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.coach-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.coach-image img:hover {
+    transform: scale(1.02);
+}
+
+.coach-info h2 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.coach-info h3 {
+    color: #007bff;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.coach-credentials {
+    display: grid;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.coach-credentials p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #555;
+}
+
+.coach-credentials i {
+    color: #007bff;
+}
+
+.coach-bio {
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.coach-specialties h4 {
+    color: #333;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.coach-specialties ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+
+.coach-specialties li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: #555;
+}
+
+.coach-specialties li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #007bff;
+}
+
+/* Contact Form Styles */
+.contact-form {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.form-intro {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    outline: none;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 1rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+.submit-button i {
+    transition: transform 0.3s ease;
+}
+
+.submit-button:hover i {
+    transform: translateX(3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .submit-form-section {
+        background: #ffffff;
+        padding: 2rem 0;
+    }
+
+    .split-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .coach-specialties ul {
+        grid-template-columns: 1fr;
+    }
 }

@@ -16,7 +16,6 @@
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="programs.html">Programs</a>
-                <a href="coaches.html">Coaches</a>
                 <a href="blog.html">Blog</a>
             </div>
             <div class="menu-toggle">
@@ -55,23 +54,60 @@
             </div>
         </section>
 
-        <section id="submit-form" class="submit-form">
-            <h2 style="text-align: center;" font-style="italic;" font-family="sans-serif">Get in Touch</h2>
-            <form action="https://formspree.io/f/mvgowqqr" method="POST">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" required>
+        <section id="submit-form" class="submit-form-section">
+            <div class="container split-layout">
+                <div class="coach-profile">
+                    <div class="coach-image">
+                        <img src="image/coach.jpg" alt="Head Coach" onerror="this.src='https://via.placeholder.com/300x300?text=Coach'">
+                    </div>
+                    <div class="coach-info">
+                        <h2>Meet Our Coach</h2>
+                        <h3>Nitin Singh Rathore</h3>
+                        <div class="coach-credentials">
+                            <p><i class="fas fa-medal"></i> UEFA Pro License</p>
+                            <p><i class="fas fa-history"></i> 6+ Years Experience</p>
+                            <p><i class="fas fa-trophy"></i> Multiple Championship Titles</p>
+                        </div>
+                        <p class="coach-bio">
+                            With over 15 years of experience in professional soccer coaching, Coach John has developed 
+                            numerous players who have gone on to play at professional levels. His training methodology 
+                            focuses on technical excellence, tactical understanding, and mental strength.
+                        </p>
+                        <div class="coach-specialties">
+                            <h4>Specialties:</h4>
+                            <ul>
+                                <li>Youth Development</li>
+                                <li>Advanced Tactical Training</li>
+                                <li>Performance Analysis</li>
+                                <li>Individual Skill Enhancement</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" name="_replyto" id="email" required>
+
+                <div class="contact-form">
+                    <h2>Get in Touch</h2>
+                    <p class="form-intro">Interested in joining our academy? Send us a message and we'll get back to you!</p>
+                    <form action="https://formspree.io/f/mvgowqqr" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="_replyto" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" style="font-weight: bold;">Submit</button>
-            </form>
+            </div>
         </section>
 
     </main>
@@ -86,10 +122,22 @@
             <div class="footer-section">
                 <h3>Follow Us</h3>
                 <div class="social-links">
-                    <a href="#" aria-label="Visit our Facebook page"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Visit our Instagram page"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Visit our Youtube page"><i class="fab fa-youtube"></i></a>
-                    <a href="#" aria-label="Visit our WhatsApp page"><i class="fab fa-WhatsApp"></i></a>
+                    <a href="#" class="social-link facebook" aria-label="Visit our Facebook page">
+                        <i class="fab fa-facebook"></i>
+                        <span class="social-tooltip">Facebook</span>
+                    </a>
+                    <a href="#" class="social-link instagram" aria-label="Visit our Instagram page">
+                        <i class="fab fa-instagram"></i>
+                        <span class="social-tooltip">Instagram</span>
+                    </a>
+                    <a href="#" class="social-link youtube" aria-label="Visit our Youtube page">
+                        <i class="fab fa-youtube"></i>
+                        <span class="social-tooltip">YouTube</span>
+                    </a>
+                    <a href="#" class="social-link whatsapp" aria-label="Visit our WhatsApp page">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="social-tooltip">WhatsApp</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -100,4 +148,4 @@
 
     <script src="script.js"></script>
 </body>
-</html> 
+</html>
