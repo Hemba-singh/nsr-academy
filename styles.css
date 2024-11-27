@@ -1,0 +1,505 @@
+/* Reset and base styles */
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('../images/hero_background.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #466c8e;
+    padding: 0 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+/* Header and Navigation */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 2rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('image/hero_background.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #466c8e;
+    padding: 0 1rem;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    background-image: url('image/hero_background.jpg') center/cover;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Features Section */
+.features {
+    padding: 5rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 3rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card i {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+/* Form Section */
+form {
+    padding: 2rem 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+form h2 {
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    text-align: center;
+    font-style: italic;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.1rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+form input[type="text"], form input[type="email"], form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #1d659f;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+form textarea {
+    height: 100px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: 1px solid #333;
+    border-radius: 80px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 3rem 1rem 1rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: #fff;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Blog Styles */
+.blog-main {
+    padding-top: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+}
+
+.blog-header {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.blog-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.blog-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-content {
+    padding: 1.5rem;
+}
+
+.blog-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.blog-meta {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    display: inline-block;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Blog Layout */
+@media (max-width: 768px) {
+    .blog-header h1 {
+        font-size: 2rem;
+    }
+    
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Programs Page Styles */
+.programs-main {
+    padding-top: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+}
+
+.programs-header {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.programs-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.program-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+}
+
+.program-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.program-content {
+    padding: 1.5rem;
+}
+
+.program-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.program-details {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.program-details i {
+    margin-right: 0.5rem;
+    margin-left: 1rem;
+}
+
+.program-details i:first-child {
+    margin-left: 0;
+}
+
+.enroll-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.enroll-button:hover {
+    background-color: #0056b3;
+}
+
+/* Coaches Page Styles */
+.coaches-main {
+    padding-top: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+}
+
+.coaches-header {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.coaches-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.coaches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.coach-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.coach-card:hover {
+    transform: translateY(-5px);
+}
+
+.coach-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.coach-content {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.coach-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.coach-title {
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.coach-credentials {
+    margin: 1rem 0;
+    color: #666;
+}
+
+.coach-credentials i {
+    margin-right: 0.5rem;
+    color: #007bff;
+}
+
+.coach-bio {
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+.coach-social {
+    margin-top: 1rem;
+}
+
+.coach-social a {
+    color: #333;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.coach-social a:hover {
+    color: #007bff;
+}
+
+/* Responsive adjustments for programs and coaches pages */
+@media (max-width: 768px) {
+    .programs-header h1,
+    .coaches-header h1 {
+        font-size: 2rem;
+    }
+    
+    .programs-grid,
+    .coaches-grid {
+        grid-template-columns: 1fr;
+    }
+} 
