@@ -132,6 +132,106 @@ forms.forEach(form => {
     });
 });
 
+// Enrollment form handling
+function handleEnrollment(event) {
+    event.preventDefault();
+    const form = event.target;
+    
+    // Clear previous validation messages
+    form.querySelectorAll('.validation-message').forEach(msg => msg.remove());
+    form.querySelectorAll('.invalid').forEach(field => field.classList.remove('invalid'));
+    
+    // Validate form fields
+    let isValid = true;
+    
+    // Full Name validation
+    const fullName = form.fullName.value.trim();
+    if (fullName.length < 2) {
+        showValidationError(form.fullName, 'Please enter your full name (minimum 2 characters)');
+        isValid = false;
+    }
+    
+    // Email validation
+    const email = form.email.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        showValidationError(form.email, 'Please enter a valid email address');
+        isValid = false;
+    }
+    
+    // Phone validation
+    const phone = form.phone.value.trim();
+    const phoneRegex = /^[\d\s\-+()]{10,}$/;
+    if (!phoneRegex.test(phone)) {
+        showValidationError(form.phone, 'Please enter a valid phone number (minimum 10 digits)');
+        isValid = false;
+    }
+    
+    // Date of Birth validation
+    const dob = new Date(form.dob.value);
+    const today = new Date();
+    const age = today.getFullYear() - dob.getFullYear();
+    if (isNaN(dob.getTime()) || age < 4 || age > 100) {
+        showValidationError(form.dob, 'Please enter a valid date of birth (age must be between 4 and 100)');
+        isValid = false;
+    }
+    
+    // Program validation
+    if (!form.program.value) {
+        showValidationError(form.program, 'Please select a program');
+        isValid = false;
+    }
+    
+    if (!isValid) {
+        return false;
+    }
+    
+    // Disable submit button and show loading state
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+    
+    // Simulate form submission (replace with actual API call)
+    setTimeout(() => {
+        createPopup('success', 'Enrollment Submitted!', 'Thank you for enrolling with NSR Sport Academy. We will contact you shortly to confirm your enrollment.');
+        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Submit Enrollment';
+    }, 1500);
+    
+    return false;
+}
+
+function showValidationError(field, message) {
+    field.classList.add('invalid');
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'validation-message';
+    errorDiv.textContent = message;
+    field.parentElement.appendChild(errorDiv);
+}
+
+// Handle program selection from URL
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if we're on the enrollment page
+    const programSelect = document.getElementById('program');
+    if (programSelect) {
+        // Get the program from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedProgram = urlParams.get('program');
+        
+        // If a program was specified, select it in the dropdown
+        if (selectedProgram) {
+            programSelect.value = selectedProgram;
+            
+            // Scroll to the form
+            const enrollmentForm = document.getElementById('enrollmentForm');
+            if (enrollmentForm) {
+                enrollmentForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    }
+});
+
 // Add animation on scroll for features
 const featureCards = document.querySelectorAll('.feature-card');
 

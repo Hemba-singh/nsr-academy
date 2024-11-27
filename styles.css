@@ -987,8 +987,9 @@ footer {
     border: 2px solid #e1e1e1;
     border-radius: 8px;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     background-color: #f8f9fa;
+    transform-origin: top left;
 }
 
 .form-group input::placeholder,
@@ -1000,18 +1001,134 @@ footer {
 .form-group select:focus,
 .form-group textarea:focus {
     border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
     background-color: #fff;
-    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
-    outline: none;
+    transform: scale(1.01);
 }
 
-.form-group select {
+.form-group input.invalid,
+.form-group select.invalid,
+.form-group textarea.invalid {
+    border-color: #dc3545;
+    animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.submit-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background: #007bff;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    padding-right: 2.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+.submit-button.loading {
+    pointer-events: none;
+    background: linear-gradient(-45deg, #007bff, #0056b3, #0056b3, #007bff);
+    background-size: 400% 400%;
+    animation: gradientShift 3s ease infinite;
+}
+
+.submit-button.success {
+    background: #28a745;
+    pointer-events: none;
+}
+
+.submit-button i {
+    transition: all 0.3s ease;
+}
+
+.submit-button.loading i {
+    animation: spin 1s linear infinite;
+}
+
+.submit-button.success i {
+    animation: successPop 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+/* Enhanced Animations */
+@keyframes shake {
+    10%, 90% {
+        transform: translateX(-1px);
+    }
+    20%, 80% {
+        transform: translateX(2px);
+    }
+    30%, 50%, 70% {
+        transform: translateX(-3px);
+    }
+    40%, 60% {
+        transform: translateX(3px);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes successPop {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Form Group Label Animation */
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus ~ label,
+.form-group select:focus ~ label,
+.form-group textarea:focus ~ label {
+    color: #007bff;
+    transform: translateY(-2px);
 }
 
 .consent-checkbox {
@@ -1034,182 +1151,6 @@ footer {
     font-size: 0.9rem;
     line-height: 1.4;
     color: #666;
-}
-
-.submit-button {
-    background: linear-gradient(45deg, #007bff, #0056b3);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 12px 35px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.submit-button::before,
-.submit-button::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: -100%;
-    background: linear-gradient(90deg, 
-        rgba(255,255,255,0) 0%, 
-        rgba(255,255,255,0.2) 50%, 
-        rgba(255,255,255,0) 100%
-    );
-    transition: all 0.6s ease;
-}
-
-.submit-button::after {
-    left: 100%;
-    background: linear-gradient(90deg, 
-        rgba(255,255,255,0) 0%, 
-        rgba(255,255,255,0.1) 50%, 
-        rgba(255,255,255,0) 100%
-    );
-}
-
-.submit-button span {
-    position: relative;
-    z-index: 2;
-    transition: all 0.3s ease;
-}
-
-.submit-button i {
-    position: relative;
-    z-index: 2;
-    font-size: 1.1em;
-    transition: all 0.3s ease;
-}
-
-/* Hover Effects */
-.submit-button:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 5px 20px rgba(0, 123, 255, 0.4);
-    background: linear-gradient(45deg, #0056b3, #004094);
-}
-
-.submit-button:hover::before {
-    left: 100%;
-    transition: all 0.6s ease;
-}
-
-.submit-button:hover::after {
-    left: -100%;
-    transition: all 0.6s ease;
-}
-
-.submit-button:hover i {
-    animation: sendMessage 1.2s ease infinite;
-}
-
-/* Click Effect */
-.submit-button:active {
-    transform: scale(0.95);
-    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
-}
-
-/* Success State */
-.submit-button.success {
-    background: linear-gradient(45deg, #28a745, #20c997);
-    padding: 12px 45px;
-}
-
-.submit-button.success span {
-    animation: successText 0.5s ease forwards;
-}
-
-.submit-button.success i {
-    animation: successIcon 0.5s ease forwards;
-}
-
-/* Loading State */
-.submit-button.loading {
-    pointer-events: none;
-    background: linear-gradient(45deg, #007bff, #0056b3);
-    animation: gradientShift 2s linear infinite;
-}
-
-.submit-button.loading span {
-    animation: loadingText 1.5s ease-in-out infinite;
-}
-
-.submit-button.loading i {
-    animation: loadingIcon 1s linear infinite;
-}
-
-/* Animations */
-@keyframes sendMessage {
-    0% {
-        transform: translateX(0) rotate(0);
-    }
-    25% {
-        transform: translateX(-3px) rotate(-5deg);
-    }
-    50% {
-        transform: translateX(100%) rotate(15deg) scale(0.8);
-        opacity: 0;
-    }
-    51% {
-        transform: translateX(-100%) rotate(0) scale(0.8);
-        opacity: 0;
-    }
-    75% {
-        transform: translateX(-3px) rotate(5deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(0) rotate(0);
-    }
-}
-
-@keyframes loadingText {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(0.98); }
-}
-
-@keyframes loadingIcon {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes successText {
-    0% { transform: scale(1); }
-    50% { transform: scale(0.9); }
-    100% { transform: scale(1); }
-}
-
-@keyframes successIcon {
-    0% { transform: scale(1) rotate(0); }
-    50% { transform: scale(1.5) rotate(5deg); }
-    100% { transform: scale(1) rotate(0); }
-}
-
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Form Validation Styles */
-.form-group input:invalid:not(:placeholder-shown),
-.form-group textarea:invalid:not(:placeholder-shown) {
-    border-color: #dc3545;
-    background-color: #fff;
-}
-
-.form-group input:invalid:not(:placeholder-shown):focus,
-.form-group textarea:invalid:not(:placeholder-shown):focus {
-    box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.1);
 }
 
 /* Responsive Design for Form */
@@ -1451,5 +1392,126 @@ footer {
     
     .article-image {
         height: 220px;
+    }
+}
+
+/* Enrollment Page Styles */
+.enrollment-main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.enrollment-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.enrollment-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.enrollment-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    outline: none;
+}
+
+.form-group input.invalid,
+.form-group select.invalid,
+.form-group textarea.invalid {
+    border-color: #dc3545;
+    background-color: #fff8f8;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Form validation styles */
+.form-group .validation-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.form-group.invalid .validation-message {
+    display: block;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .enrollment-main {
+        margin: 1rem auto;
+    }
+    
+    .enrollment-header {
+        padding: 1.5rem;
+    }
+    
+    .enrollment-header h1 {
+        font-size: 2rem;
+    }
+    
+    .enrollment-form {
+        padding: 1.5rem;
     }
 }
