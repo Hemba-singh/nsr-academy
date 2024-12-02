@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - NSR Sport Academy</title>
-    <link rel="icon" type="image/png" href="image/logo.png">
+    <link rel="icon" type="image/png" href="image/favicon.png">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -89,51 +90,11 @@
             </div>
         </section>
 
-        <section class="blog-grid">
-            <article class="blog-card">
-                <div class="blog-image">
-                    <img src="./image/blog-1.jpg" alt="Training Tips" onerror="this.src='https://source.unsplash.com/800x500/?sports-training'">
-                </div>
-                <div class="blog-content">
-                    <h3>Essential Training Tips for Athletes</h3>
-                    <div class="blog-meta">
-                        <span><i class="far fa-calendar"></i> March 15, 2024</span>
-                        <span><i class="far fa-user"></i> NSR Academy Staff</span>
-                    </div>
-                    <p class="blog-excerpt">Discover the most effective training techniques that can help you improve your performance and achieve your athletic goals.</p>
-                    <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-
-            <article class="blog-card">
-                <div class="blog-image">
-                    <img src="./image/blog-2.jpg" alt="Nutrition Guide" onerror="this.src='https://source.unsplash.com/800x500/?nutrition'">
-                </div>
-                <div class="blog-content">
-                    <h3>Nutrition Guide for Athletes</h3>
-                    <div class="blog-meta">
-                        <span><i class="far fa-calendar"></i> March 12, 2024</span>
-                        <span><i class="far fa-user"></i> NSR Academy Staff</span>
-                    </div>
-                    <p class="blog-excerpt">Learn about the best foods to fuel your workouts and support your athletic goals for optimal performance.</p>
-                    <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-
-            <article class="blog-card">
-                <div class="blog-image">
-                    <img src="./image/blog-3.jpg" alt="Recovery Methods" onerror="this.src='https://source.unsplash.com/800x500/?fitness'">
-                </div>
-                <div class="blog-content">
-                    <h3>Recovery Methods for Peak Performance</h3>
-                    <div class="blog-meta">
-                        <span><i class="far fa-calendar"></i> March 10, 2024</span>
-                        <span><i class="far fa-user"></i> NSR Academy Staff</span>
-                    </div>
-                    <p class="blog-excerpt">Explore effective recovery techniques to help you bounce back stronger after intense training sessions.</p>
-                    <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
+        <section class="blog-content">
+            <!-- Blog posts will be dynamically loaded here -->
+            <div id="blogPosts" class="blog-grid">
+                <div class="loading-spinner">Loading posts...</div>
+            </div>
         </section>
     </main>
 
@@ -187,6 +148,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="blog.js"></script>
 </body>
 </html>
