@@ -212,87 +212,52 @@ async function fetchTestBlogPost() {
 }
 
 // Function to display posts with enhanced error checking
-function displayPosts(container, querySnapshot) {
-    // Clear previous content
-    container.innerHTML = '';
-
-    // Validate querySnapshot
-    if (!querySnapshot || typeof querySnapshot.forEach !== 'function') {
-        console.error('Invalid querySnapshot received:', querySnapshot);
-        container.innerHTML = `
-            <div class="error-message">
-                <h3>Display Error</h3>
-                <p>Unable to process blog posts. Invalid data received.</p>
-            </div>
-        `;
+async function displayPosts(container, querySnapshot) {
+    if (!container) {
+        console.error('Container element not found');
         return;
     }
 
-    let postsDisplayed = 0;
+    // Clear loading spinner
+    container.innerHTML = '';
 
-    querySnapshot.forEach((doc) => {
-        try {
-            const post = doc.data();
-            
-            // Validate post data
-            if (!post) {
-                console.warn('Skipping invalid post document:', doc.id);
-                return;
-            }
+    if (querySnapshot.empty) {
+        container.innerHTML = '<p class="no-posts">No blog posts found.</p>';
+        return;
+    }
 
-            // Log each post for debugging
-            console.log(`Post ${doc.id} Details:`, post);
+    querySnapshot.forEach(doc => {
+        const post = doc.data();
+        const postElement = document.createElement('div');
+        postElement.className = 'blog-card';
 
-            const postElement = document.createElement('div');
-            postElement.className = 'blog-post';
-            
-            // Enhanced post rendering with fallback values
-            postElement.innerHTML = `
-                <h2 class="post-title">${post.title || 'Untitled Post'}</h2>
-                <div class="post-meta">
-                    <span class="post-date">
-                        ${post.timestamp 
-                            ? new Date(post.timestamp.toDate()).toLocaleDateString('en-US', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric'
-                            }) 
-                            : 'Date Unknown'}
-                    </span>
-                    <span class="post-author">By ${post.author || 'Anonymous'}</span>
+        const formattedDate = post.timestamp ? new Date(post.timestamp.toDate()).toLocaleDateString() : 'Date not available';
+        
+        postElement.innerHTML = `
+            <div class="blog-card-image">
+                <img src="${post.imageUrl || 'placeholder-image.jpg'}" alt="${post.title}">
+            </div>
+            <div class="blog-card-content">
+                <h2 class="blog-card-title">${post.title}</h2>
+                <div class="blog-card-meta">
+                    <span>By ${post.author || 'Anonymous'}</span> • 
+                    <span>${formattedDate}</span>
                 </div>
-                <div class="post-content">
-                    ${post.content || 'No content available'}
-                </div>
-                ${post.imageUrl 
-                    ? `<img src="${post.imageUrl}" 
-                             alt="${post.title || 'Blog Post Image'}" 
-                             class="post-image" 
-                             onerror="this.style.display='none'">`
-                    : ''}
-                ${post.tags 
-                    ? `<div class="post-tags">
-                        ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                       </div>` 
-                    : ''}
-            `;
-
-            container.appendChild(postElement);
-            postsDisplayed++;
-        } catch (postError) {
-            console.error('Error processing individual post:', postError);
-        }
-    });
-
-    // If no posts were displayed
-    if (postsDisplayed === 0) {
-        container.innerHTML = `
-            <div class="no-posts-message">
-                <h3>No Valid Posts</h3>
-                <p>We couldn't display any blog posts. The posts may be improperly formatted.</p>
+                <p class="blog-card-excerpt">${post.content.substring(0, 150)}...</p>
+                <a href="#" class="blog-card-link" data-post-id="${doc.id}">Read More</a>
             </div>
         `;
-    }
+
+        // Add click event listener for the "Read More" link
+        const readMoreLink = postElement.querySelector('.blog-card-link');
+        readMoreLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Implement your read more functionality here
+            console.log('Opening post:', doc.id);
+        });
+
+        container.appendChild(postElement);
+    });
 }
 
 // Enhanced error handling for Firestore permissions

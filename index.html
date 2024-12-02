@@ -115,39 +115,23 @@
         <section class="latest-article">
             <div class="container">
                 <h2>Latest Articles</h2>
-                <div class="articles-grid">
-                    <article class="article-card">
-                        <div class="article-image">
-                            <img src="image/blog-1.jpg" alt="Training Techniques" onerror="this.src='https://via.placeholder.com/400x300?text=Training+Techniques'">
+                <div id="latestBlogPosts" class="articles-grid">
+                    <article class="article-card video-card">
+                        <div class="article-image video-container">
+                            <iframe width="560" height="315" 
+                            src="https://www.youtube-nocookie.com/embed/tbIp5zqSObg?si=T92_EHz5pdjdgjSD" 
+                            title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen></iframe>
                         </div>
                         <div class="article-content">
-                            <h3>The Importance of Proper Training Techniques</h3>
-                            <p>Discover how proper training techniques can improve your performance and prevent injuries.</p>
-                            <a href="blog.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                            <h3>Latest Training Video</h3>
+                            <p>Explore our latest training insights and techniques.</p>
+                            <a href="blog.html" class="read-more-btn">Watch More <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </article>
-
-                    <article class="article-card">
-                        <div class="article-image">
-                            <img src="image/blog-2.jpg" alt="Nutrition Tips" onerror="this.src='https://via.placeholder.com/400x300?text=Nutrition+Tips'">
-                        </div>
-                        <div class="article-content">
-                            <h3>Nutrition Tips for Athletes</h3>
-                            <p>Learn about the best nutrition practices to fuel your athletic performance and recovery.</p>
-                            <a href="blog.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-
-                    <article class="article-card">
-                        <div class="article-image">
-                            <img src="image/blog-3.jpg" alt="Mental Training" onerror="this.src='https://via.placeholder.com/400x300?text=Mental+Training'">
-                        </div>
-                        <div class="article-content">
-                            <h3>Mental Training for Success</h3>
-                            <p>Explore the mental aspects of sports and how to develop a winning mindset.</p>
-                            <a href="blog.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
+                    <div class="loading-spinner">Loading latest posts...</div>
                 </div>
                 <div class="view-all-blogs">
                     <button onclick="window.location.href='blog.html'" class="view-all-btn">View All Articles <i class="fas fa-arrow-right"></i></button>
@@ -306,6 +290,7 @@
     </footer>
 
     <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="index.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
